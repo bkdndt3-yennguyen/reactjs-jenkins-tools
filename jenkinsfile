@@ -1,10 +1,15 @@
 pipeline {
-	agent any
-	stages {
-		stage('clone'){
-			steps{
-				git 'https://github.com/bkdndt3-yennguyen/reactjs-jenkins-tools.git'
-			     }
-			}
-		}
-	}	  	
+        agent any
+        stages {
+                stage('clone'){
+                        steps{
+                                git 'https://github.com/bkdndt3-yennguyen/reactjs-jenkins-tools.git'
+                             }
+                        }
+                 stage('docker'){
+                        steps {
+                                withDockerRegistry(credentialsId: 'docker-hub', url: 'https://index.docker.io/v1/') 
+                        }
+                }
+        }
+}
