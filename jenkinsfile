@@ -3,6 +3,7 @@ pipeline {
     tools {
         // Use the NodeJS installation defined in Jenkins
         nodejs "nodejs-version"
+    }
     stages {
         stage('Checkout') {
             steps {
